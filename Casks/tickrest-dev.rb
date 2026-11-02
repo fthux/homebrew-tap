@@ -4,16 +4,16 @@ cask "tickrest-dev" do
   selected_arch = ENV.fetch("HOMEBREW_TICKREST_DEV_ARCH", "universal")
   selected_arch = { "arm" => "arm64", "intel" => "x86_64" }.fetch(selected_arch, selected_arch)
   variants = {
-    "arm64" => ["https://github.com/fthux/tick-rest-macos-dev/releases/download/v1.0.5/TickRest-1.0.5-arm64.zip", "f2b2648dd1c3fc7ec09c9cabe0d266e07e4c27e3e66979c3546c63ad74b326f9"],
-    "x86_64" => ["https://github.com/fthux/tick-rest-macos-dev/releases/download/v1.0.5/TickRest-1.0.5-x86_64.zip", "e7afd34a9e701160ae0c65e5d9745f376957278910fa31a1b5c6c765619d4971"],
-    "universal" => ["https://github.com/fthux/tick-rest-macos-dev/releases/download/v1.0.5/TickRest-1.0.5-universal.zip", "f5e93a42a67da23106ad3944e6e268007652da9e0dc7f38e4e9f4d77f8da3ebb"],
+    "arm64" => ["https://github.com/fthux/tick-rest-macos-dev/releases/download/v1.0.6/TickRest-1.0.6-arm64.zip", "d873b7661d938c48bafb24162337a00ee66907f10ab238f346251d2e5bb9598a"],
+    "x86_64" => ["https://github.com/fthux/tick-rest-macos-dev/releases/download/v1.0.6/TickRest-1.0.6-x86_64.zip", "fd0a791ef13bc8bed69d71ed5eb6cf879a66db8322812a1e9a71097e1d1c4f00"],
+    "universal" => ["https://github.com/fthux/tick-rest-macos-dev/releases/download/v1.0.6/TickRest-1.0.6-universal.zip", "8599ca1878f20e0c18d361bf7ad147756d2bf19618c1b10fe90f355c483466d8"],
   }
   unless variants.key?(selected_arch)
     raise ArgumentError, "HOMEBREW_TICKREST_DEV_ARCH must select an available architecture: #{variants.keys.join(', ')} (aliases: arm, intel)"
   end
   download_url, checksum = variants.fetch(selected_arch)
 
-  version "1.0.5,5"
+  version "1.0.6,6"
   sha256 checksum
 
   url download_url
